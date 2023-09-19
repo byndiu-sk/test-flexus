@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShootController : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class ShootController : MonoBehaviour
     [SerializeField]
     private float _bulletSpeed = 10.0f; // Ўвидк≥сть снар€ду
 
+    [SerializeField]
+    private Slider _powerSlider;
+
     // Update is called once per frame
     void Update()
     {
@@ -18,6 +22,8 @@ public class ShootController : MonoBehaviour
         {
             Shoot();
         }
+
+        _bulletSpeed = _powerSlider.value * 100;
     }
 
     public void Shoot()
